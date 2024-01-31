@@ -26,9 +26,10 @@ public class EmployeeController {
     public EmployeeResponse addEmployee(@RequestBody EmployeeRequest request){
         return employeeService.addEmployee(request);
     }
-    @GetMapping
-    public List<EmployeeService> getAll() {
-        return employeeService.getAll();
+    @GetMapping("/{id}")
+    public EmployeeResponse getEmployeesById(@PathVariable Long id){
+        return employeeService.getEmployeesById(id);
+
     }
     @GetMapping("/department")
     public List<EmployeeResponse> getEmployeeByDepartment(@RequestParam("department") String query){

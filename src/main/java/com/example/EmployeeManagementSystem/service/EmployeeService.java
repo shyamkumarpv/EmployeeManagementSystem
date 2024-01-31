@@ -29,11 +29,10 @@ public class EmployeeService {
         return modelMapper.map(employee, EmployeeResponse.class);
     }
 
-    public List<EmployeeService> getAll() {
-        List<Employee> employee = employeeRepository.findAll();
-        return employee.stream()
-                .map(employee1 -> modelMapper.map(employee1, EmployeeService.class))
-                .collect(Collectors.toList());
+    public EmployeeResponse getEmployeesById(Long id) {
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Employee with id:" + id +"not found"));
+        return modelMapper.map(employee, EmployeeResponse.class);
+
     }
 
     public List<EmployeeResponse> getEmployeeByDepartment(String query) {
