@@ -34,9 +34,9 @@ public class EmployeeServiceTest {
     public void testAddEmployee() {
         EmployeeRequest request = new EmployeeRequest("shyam","shym@gmail.com","java");
         Employee employee = Employee.builder()
-                .name(request.getName())
-                .email(request.getEmail())
-                .department(request.getDepartment())
+                .name("shyam")
+                .email("shyam@gmail.com")
+                .department("java")
                 .build();
 
         EmployeeResponse expectedResponse = new EmployeeResponse(1L,"shyam","shyam@gmail.com","java");
@@ -54,9 +54,9 @@ public class EmployeeServiceTest {
         Long id = 1L;
 
         Employee employee = Employee.builder()
-                .name("John Doe")
-                .email("john.doe@example.com")
-                .department("Engineering")
+                .name("shyam")
+                .email("shyam@gmail.com")
+                .department("java")
                 .build();
 
         EmployeeResponse expectedResponse = new EmployeeResponse(1L,"shyam","shyam@edstem.com","java");

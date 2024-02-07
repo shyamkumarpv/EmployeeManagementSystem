@@ -1,15 +1,16 @@
 package com.example.EmployeeManagementSystem.contract.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class EmployeeResponse {
-    private Long Id;
+    private Long id;
     private String name;
     private String email;
     private String department;
