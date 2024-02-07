@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Getter
 @Builder
-
 public class Employee {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

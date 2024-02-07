@@ -1,11 +1,10 @@
 package com.example.EmployeeManagementSystem.controller;
 
-import com.example.EmployeeManagementSystem.contract.Request.EmployeeRequest;
-import com.example.EmployeeManagementSystem.contract.Response.EmployeeResponse;
-import com.example.EmployeeManagementSystem.model.Employee;
+import com.example.EmployeeManagementSystem.contract.request.EmployeeRequest;
+import com.example.EmployeeManagementSystem.contract.response.EmployeeResponse;
 import com.example.EmployeeManagementSystem.service.EmployeeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,8 +21,8 @@ import java.util.List;
 public class EmployeeController {
     private final EmployeeService employeeService;
 
-    @PostMapping
-    public EmployeeResponse addEmployee(@RequestBody EmployeeRequest request){
+    @PostMapping("/create")
+    public EmployeeResponse addEmployee(@Valid @RequestBody EmployeeRequest request){
         return employeeService.addEmployee(request);
     }
     @GetMapping("/{id}")

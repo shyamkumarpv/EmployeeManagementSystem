@@ -1,7 +1,7 @@
 package com.example.EmployeeManagementSystem.service;
 
-import com.example.EmployeeManagementSystem.contract.Request.EmployeeRequest;
-import com.example.EmployeeManagementSystem.contract.Response.EmployeeResponse;
+import com.example.EmployeeManagementSystem.contract.request.EmployeeRequest;
+import com.example.EmployeeManagementSystem.contract.response.EmployeeResponse;
 import com.example.EmployeeManagementSystem.model.Employee;
 import com.example.EmployeeManagementSystem.repository.EmployeeRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -25,8 +25,8 @@ public class EmployeeService {
                 .email(request.getEmail())
                 .department(request.getDepartment())
                 .build();
-        employee = employeeRepository.save(employee);
-        return modelMapper.map(employee, EmployeeResponse.class);
+        Employee savedEmployee = employeeRepository.save(employee);
+        return modelMapper.map(savedEmployee, EmployeeResponse.class);
     }
 
     public EmployeeResponse getEmployeesById(Long id) {
